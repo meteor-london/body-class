@@ -9,6 +9,6 @@ Package.onUse(function(api) {
   api.versionsFrom('METEOR@0.9.0.1')
   api.use('jquery')
   api.use('ui')
-  api.use('iron:router', { "weak": true })
+  api.use('iron:router@0.9.1', { "weak": true })
   api.addFiles('london:body-class.js', 'client')
 })
