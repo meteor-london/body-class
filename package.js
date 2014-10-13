@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Giving you `UI.addBodyClass` for reactive class names on the body element",
-  version: "1.0.0",
+  version: "1.0.1",
   name: "london:body-class",
   git: "https://github.com/meteor-london/body-class.git"
 })

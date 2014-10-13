@@ -53,7 +53,6 @@ UI.addBodyClass = function (fn) {
 }
 
 Meteor.startup(function(){
-  console.log('london', this.Router)
   if(this.Router) {
     UI.addBodyClass(function () { return Router.current() && Router.current().route.name })
   }
