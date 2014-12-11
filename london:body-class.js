@@ -11,9 +11,9 @@ Meteor ================================================
  ============================================ body-class
 ```
 
-Giving you `UI.addBodyClass` for **live live live** reactive class names on the body element.
+Giving you `Blaze.addBodyClass` for **live live live** reactive class names on the body element.
 
-Usage: `UI.addBodyClass(fn)`
+Usage: `Blaze.addBodyClass(fn)`
 
 Example:
 
@@ -21,7 +21,7 @@ Example:
 
 Session.setDefault('state', 'alpha')
 
-UI.addBodyClass(function() {
+Blaze.addBodyClass(function() {
   return Session.get('state')
 })
 
@@ -35,9 +35,9 @@ results in `<body class="alpha">`
 by: @olizilla for meteor-london
 */
 
-UI.addBodyClass = function (fn) {
+Blaze.addBodyClass = function (fn) {
   if($.isArray(fn)) {
-    return fn.forEach(UI.addBodyClass)
+    return fn.forEach(Blaze.addBodyClass)
   }
   if(typeof fn !== 'function') {
     return Meteor.startup(function () { $('body').addClass(fn) })
@@ -51,9 +51,10 @@ UI.addBodyClass = function (fn) {
     })
   })
 }
-
-Meteor.startup(function(){
-  if(this.Router) {
-    UI.addBodyClass(function () { return Router.current() && Router.current().route.name })
-  }
-})
+if(Package['iron:router']) {
+  Meteor.startup(function () {
+    Blaze.addBodyClass(function () {
+      return Router.current() && Router.current().route.getName()
+    })
+  })
+}
