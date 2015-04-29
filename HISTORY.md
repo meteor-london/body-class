@@ -1,5 +1,8 @@
 # Release History
 
+**2.1.0**
+- Automagic flow-router support thanks to [richsilv](https://github.com/richsilv)
+
 **2.0.0**
 
 - UI namespace is deprecated in favour of Blaze

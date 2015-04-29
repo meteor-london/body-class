@@ -12,6 +12,10 @@ Meteor ================================================
 
 Giving you `Blaze.addBodyClass` for **live live live** reactive class names on the body element.
 
+Works automagically with [meteorhacks:flow-router](https://atmospherejs.com/meteorhacks/flow-router) & [iron:router](https://atmospherejs.com/iron/router) to add the current route name as a body class; useful for isolating your page specific css styles.
+
+## It's super simple
+
 ```shell
 meteor add london:body-class
 ```
@@ -61,17 +65,9 @@ Where `connected` will update to reflect the current connection state with the s
 So, remember kids:
 
 - If [iron:router](https://atmospherejs.com/iron/router) is present, the current route is automatically added as a body class.
+- If [meteorhacks:flow-router](https://atmospherejs.com/meteorhacks/flow-router) is present, the `name` property of the current route is automatically added as a body class.
 - Calling `addBodyClass` multiple times is fine. They all end up as additional body classes.
 - Duplicate classes are removed by virtue of using jQuery `addClass` to do the dirty work.
 - For bonus points: add `Meteor.status().status` as a body class so you can visualize the connection health.
 
-## Blaze is the new UI
-
-https://github.com/meteor/meteor/blob/devel/History.md#backwards-compatible-blaze-api-changes
-
-The previous version of this package added the `addBodyClass` to the `UI` package.
-`UI` has been **deprecated**, but is aliased to `Blaze` by the Meteor gang, so for as long as that remains true,
-you can use `UI.addBodyClass` and `Blaze.addBodyClass` interchangebly.
-
-**New code should use Blaze`**
-
+From the [meteorlondon](http://www.meteorlondon.com/) / [(╯°□°）╯︵ TABLEFLIP](http://tableflip.io) crew
