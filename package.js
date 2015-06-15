@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Giving you `Blaze.addBodyClass` for reactive class names on the body element",
-  version: "2.1.0",
+  version: "2.1.1",
   name: "london:body-class",
   git: "https://github.com/meteor-london/body-class.git"
 })
