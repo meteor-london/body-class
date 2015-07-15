@@ -10,6 +10,6 @@ Package.onUse(function(api) {
   api.use('blaze', 'client')
   api.use('jquery', 'client')
   api.use('iron:router@1.0.0','client', { "weak": true })
-  api.use('meteorhacks:flow-router@1.4.0', 'client', { "weak": true })
+  api.use('meteorhacks:flow-router@1.8.0', 'client', { "weak": true })
   api.addFiles('london:body-class.js', 'client')
 })
