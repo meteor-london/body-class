@@ -1,5 +1,8 @@
 # Release History
 
+**2.1.1**
+- Flow-Router support updated to reflect API changes in v1.8.0
+
 **2.1.0**
 - Automagic flow-router support thanks to [richsilv](https://github.com/richsilv)
 
