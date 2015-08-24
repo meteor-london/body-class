@@ -12,7 +12,7 @@ Meteor ================================================
 
 Giving you `Blaze.addBodyClass` for **live live live** reactive class names on the body element.
 
-Works automagically with [meteorhacks:flow-router](https://atmospherejs.com/meteorhacks/flow-router) & [iron:router](https://atmospherejs.com/iron/router) to add the current route name as a body class; useful for isolating your page specific css styles.
+Works automagically with [meteorhacks:flow-router](https://atmospherejs.com/meteorhacks/flow-router) & [iron:router](https://atmospherejs.com/iron/router) to add the current route name as a body class; useful for isolating your page-specific CSS styles.
 
 ## It's super simple
 
@@ -20,7 +20,7 @@ Works automagically with [meteorhacks:flow-router](https://atmospherejs.com/mete
 meteor add london:body-class
 ```
 
-Call `Blaze.addBodyClass(fn)` with a function and it's return value will be added as a class to the body.
+Call `Blaze.addBodyClass(fn)` with a function and its return value will be added as a class to the body.
 
 If that function uses a reactive data source (Collection, Session, etc) then the body class will update when the dependencies change.
 
@@ -40,7 +40,7 @@ results in
 <body class="alpha">
 ```
 
-The value from `Session.get('state')` is added as a class to the <body> element,
+The value from `Session.get('state')` is added as a class to the <body> element.
 It will be updated whenever the value for `state` changes.
 
 
