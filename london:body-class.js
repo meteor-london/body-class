@@ -44,7 +44,7 @@ Blaze.addBodyClass = function (fn) {
   }
 
   Meteor.startup(function () {
-    Deps.autorun(function () {
+    Tracker.autorun(function () {
       $('body')
         .removeClass(fn._prev)
         .addClass(fn._prev = fn())
