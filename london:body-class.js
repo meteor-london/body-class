@@ -61,9 +61,11 @@ if(Package['iron:router']) {
 if(Package['meteorhacks:flow-router']) {
   Meteor.startup(function () {
     Blaze.addBodyClass(function () {
-      return FlowRouter.reactiveCurrent() &&
-             FlowRouter.reactiveCurrent().route &&
-             FlowRouter.reactiveCurrent().route.name
-    })
+      FlowRouter.watchPathChange();
+      var currentContext = FlowRouter.current();
+      return currentContext &&
+             currentContext.route &&
+             currentContext.route.name
+    });
   })
 }
