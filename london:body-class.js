@@ -58,7 +58,7 @@ if(Package['iron:router']) {
     })
   })
 }
-if(Package['meteorhacks:flow-router']) {
+if(Package['meteorhacks:flow-router'] || Package['kadira:flow-router']) {
   Meteor.startup(function () {
     Blaze.addBodyClass(function () {
       FlowRouter.watchPathChange();
