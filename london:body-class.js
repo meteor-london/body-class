@@ -54,7 +54,11 @@ Blaze.addBodyClass = function (fn) {
 if(Package['iron:router']) {
   Meteor.startup(function () {
     Blaze.addBodyClass(function () {
-      return Router.current() && Router.current().route.getName()
+      var className = Router.current() && Router.current().route.getName();
+      if(className){
+            className = className.replace(/\./g, '-');
+      }
+      return className;
     })
   })
 }
