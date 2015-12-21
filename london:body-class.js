@@ -44,7 +44,7 @@ Blaze.addBodyClass = function (fn) {
   }
 
   Meteor.startup(function () {
-    Deps.autorun(function () {
+    Tracker.autorun(function () {
       $('body')
         .removeClass(fn._prev)
         .addClass(fn._prev = fn())
@@ -58,12 +58,14 @@ if(Package['iron:router']) {
     })
   })
 }
-if(Package['meteorhacks:flow-router']) {
+if(Package['meteorhacks:flow-router'] || Package['kadira:flow-router']) {
   Meteor.startup(function () {
     Blaze.addBodyClass(function () {
-      return FlowRouter.reactiveCurrent() &&
-             FlowRouter.reactiveCurrent().route &&
-             FlowRouter.reactiveCurrent().route.name
-    })
+      FlowRouter.watchPathChange();
+      var currentContext = FlowRouter.current();
+      return currentContext &&
+             currentContext.route &&
+             currentContext.route.name
+    });
   })
 }
