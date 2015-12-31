@@ -11,5 +11,5 @@ Package.onUse(function(api) {
   api.use('jquery', 'client')
   api.use('iron:router@1.0.0','client', { "weak": true })
   api.use('meteorhacks:flow-router@1.4.0', 'client', { "weak": true })
-  api.addFiles('london:body-class.js', 'client')
+  api.addFiles('body-class.js', 'client')
 })
