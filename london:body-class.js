@@ -62,6 +62,7 @@ if(Package['iron:router']) {
 }
 if(Package['meteorhacks:flow-router'] || Package['kadira:flow-router']) {
   Meteor.startup(function () {
+    // Since we need to wait for startup, we need to addBodyClass immediately, as the entry page will already have rendered
     Blaze.addBodyClass(FlowRouter.getRouteName())
     FlowRouter.triggers.enter([function (context) {
       Blaze.addBodyClass(context.route.name)
