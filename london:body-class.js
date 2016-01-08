@@ -34,13 +34,15 @@ results in `<body class="alpha">`
 
 by: @olizilla for meteor-london
 */
+var prevSingleton
 
 Blaze.addBodyClass = function (fn) {
   if($.isArray(fn)) {
     return fn.forEach(Blaze.addBodyClass)
   }
   if(typeof fn !== 'function') {
-    return Meteor.startup(function () { $('body').addClass(fn) })
+    $('body').removeClass(prevSingleton)
+    return Meteor.startup(function () { $('body').addClass(prevSingleton = fn) })
   }
 
   Meteor.startup(function () {
@@ -60,12 +62,9 @@ if(Package['iron:router']) {
 }
 if(Package['meteorhacks:flow-router'] || Package['kadira:flow-router']) {
   Meteor.startup(function () {
-    Blaze.addBodyClass(function () {
-      FlowRouter.watchPathChange();
-      var currentContext = FlowRouter.current();
-      return currentContext &&
-             currentContext.route &&
-             currentContext.route.name
-    });
+    Blaze.addBodyClass(FlowRouter.getRouteName())
+    FlowRouter.triggers.enter([function (context) {
+      Blaze.addBodyClass(context.route.name)
+    }])
   })
 }
